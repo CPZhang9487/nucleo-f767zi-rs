@@ -44,27 +44,20 @@ cargo build
 cargo build --release
 ```
 
-第一次建置可能會出現找不到 thumbv7em-none-eabihf
-
-並會提示我們使用以下命令安裝
-
-```bash
-rustup target add thumbv7em-none-eabihf 
-```
-
-安裝好後即可建置成功
-
 並可以使用以下命令查看建置後的靜態 ram 與 flash 消耗大小
 
 ```bash
 # 需要先使用以下命令安裝 cargo size 副命令
 #cargo install cargo-binutils
-#rustup component add llvm-tools-preview
 
 # debug
 cargo size
 # release
 cargo size --release
+
+# 更詳細
+cargo size -- -A
+cargo size --release -- -A
 ```
 
 ## **燒錄並運行**
@@ -94,3 +87,15 @@ cargo run --release
 複製副本並加上副檔名 .elf
 
 即可使用 stm32cubeprogrammer 進行燒錄
+
+## 驅動大小
+
+```bash
+> cargo size
+   text    data     bss     dec     hex filename
+  69456      80    1180   70716   1143c nucleo-f767zi
+
+> cargo size --release
+   text    data     bss     dec     hex filename
+  10396      80    1184   11660    2d8c nucleo-f767zi
+```
