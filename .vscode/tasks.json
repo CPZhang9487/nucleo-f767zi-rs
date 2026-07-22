@@ -33,6 +33,26 @@
                 "Cargo Build Release"
             ],
             "dependsOrder": "sequence",
+            "group": "build"
+        },
+        {
+            "label": "Cargo Format",
+            "type": "shell",
+            "command": "cargo",
+            "args": [
+                "fmt"
+            ],
+            "problemMatcher": [
+                "$rustc"
+            ]
+        },
+        {
+            "label": "Cargo Format and Build",
+            "dependsOn": [
+                "Cargo Format",
+                "Cargo Build"
+            ],
+            "dependsOrder": "sequence",
             "group": {
                 "kind": "build",
                 "isDefault": true
