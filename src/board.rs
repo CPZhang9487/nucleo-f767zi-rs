@@ -1,21 +1,20 @@
+use crate::led::Leds;
 use embassy_stm32::{
     Peripherals,
     gpio::{Level, Output, Speed},
 };
 
-#[allow(dead_code)]
 pub struct Board {
-    pub ld1: Output<'static>,
-    pub ld2: Output<'static>,
-    pub ld3: Output<'static>,
+    pub leds: Leds,
 }
 
 impl Board {
     pub fn new(p: Peripherals) -> Self {
+        let led_green = Output::new(p.PB0, Level::Low, Speed::Low);
+        let led_blue = Output::new(p.PB7, Level::Low, Speed::Low);
+        let led_red = Output::new(p.PB14, Level::Low, Speed::Low);
         Self {
-            ld1: Output::new(p.PB0, Level::Low, Speed::Low),
-            ld2: Output::new(p.PB7, Level::Low, Speed::Low),
-            ld3: Output::new(p.PB14, Level::Low, Speed::Low),
+            leds: Leds::new(led_green, led_blue, led_red),
         }
     }
 }

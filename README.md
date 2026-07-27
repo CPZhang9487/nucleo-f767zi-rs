@@ -93,9 +93,9 @@ cargo run --release
 ```bash
 > cargo size
    text    data     bss     dec     hex filename
-  73908      80    1180   75168   125a0 nucleo-f767zi
+  81064      80    1292   82436   14204 nucleo-f767zi
 
 > cargo size --release
    text    data     bss     dec     hex filename
-  10672      80    1184   11936    2ea0 nucleo-f767zi
+  11816      80    1296   13192    3388 nucleo-f767zi
 ```
