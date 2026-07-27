@@ -88,14 +88,40 @@ cargo run --release
 
 即可使用 stm32cubeprogrammer 進行燒錄
 
-## 驅動大小
+## **時脈**
+
+| Clock | Frequency (Hz) |
+|---|---:|
+| afif | 0 |
+| hclk1 | 96,000,000 |
+| hclk2 | 96,000,000 |
+| hclk3 | 96,000,000 |
+| hse | 8,000,000 |
+| hsi | 16,000,000 |
+| hsi_hse | 0 |
+| lse | 0 |
+| lsi | 0 |
+| pclk1 | 48,000,000 |
+| pclk1_tim | 96,000,000 |
+| pclk2 | 96,000,000 |
+| pclk2_tim | 96,000,000 |
+| pll1_q | 48,000,000 |
+| plli2s1_p | 0 |
+| plli2s1_q | 0 |
+| plli2s1_r | 0 |
+| pllsai1_p | 0 |
+| pllsai1_q | 0 |
+| rtc | 32,000 |
+| sys | 96,000,000 |
+
+## **驅動大小**
 
 ```bash
 > cargo size
    text    data     bss     dec     hex filename
-  81064      80    1292   82436   14204 nucleo-f767zi
+  81332      80    1356   82768   14350 nucleo-f767zi
 
 > cargo size --release
    text    data     bss     dec     hex filename
-  11816      80    1296   13192    3388 nucleo-f767zi
+  13716      80    1360   15156    3b34 nucleo-f767zi
 ```

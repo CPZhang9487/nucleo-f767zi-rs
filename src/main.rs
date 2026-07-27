@@ -4,6 +4,7 @@
 
 mod board;
 mod led;
+mod rcc;
 
 use board::Board;
 use defmt::{info, unwrap};
@@ -15,7 +16,9 @@ use {defmt_rtt as _, panic_probe as _};
 
 #[embassy_executor::main]
 async fn main(spawner: Spawner) -> ! {
-    let config = Config::default();
+    let mut config = Config::default();
+    rcc::init(&mut config.rcc);
+
     let p = embassy_stm32::init(config);
     let board = Board::new(p);
 
