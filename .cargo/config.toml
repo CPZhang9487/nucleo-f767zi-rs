@@ -1,5 +1,6 @@
 [target.'cfg(all(target_arch = "arm", target_os = "none"))']
 runner = "probe-rs run --chip STM32F767ZI"
+linker = "flip-link"
 
 [build]
 target = "thumbv7em-none-eabihf"

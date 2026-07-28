@@ -22,6 +22,12 @@ VS Code 右下角會有通知出現安裝 probe-rs
 
 順勢點擊即可下載
 
+然後還需下載 flip-link
+
+```bash
+cargo install flip-link
+```
+
 ## **開發**
 
 建議先用 stm32cubeprogrammer 確認目前 nucleo-f767zi 的 OB nDBANK
@@ -119,7 +125,7 @@ cargo run --release
 ```bash
 > cargo size
    text    data     bss     dec     hex filename
-  81332      80    1356   82768   14350 nucleo-f767zi
+  81336      80    1356   82772   14354 nucleo-f767zi
 
 > cargo size --release
    text    data     bss     dec     hex filename
