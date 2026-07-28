@@ -7,7 +7,8 @@ mod led;
 mod rcc;
 
 use board::Board;
-use defmt::{info, unwrap};
+use cortex_m_stack::*;
+use defmt::{debug, info, unwrap};
 use embassy_executor::Spawner;
 use embassy_stm32::Config;
 use embassy_time::Timer;
@@ -16,6 +17,8 @@ use {defmt_rtt as _, panic_probe as _};
 
 #[embassy_executor::main]
 async fn main(spawner: Spawner) -> ! {
+    repaint_stack();
+
     let mut config = Config::default();
     rcc::init(&mut config.rcc);
 
@@ -25,6 +28,10 @@ async fn main(spawner: Spawner) -> ! {
     spawner.spawn(unwrap!(led_task(board.leds)));
 
     loop {
+        debug!("stack painted: {}", &stack_painted());
+        debug!("stack size:    {}", &stack_size());
+        debug!("stack range:   {}", &stack());
+
         info!("Hello World!");
         LED_CHANNEL.send(LedCommand::Toggle(LedId::Green)).await;
         LED_CHANNEL.send(LedCommand::Toggle(LedId::Blue)).await;

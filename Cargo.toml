@@ -11,6 +11,7 @@ repository = "https://github.com/CPZhang9487/nucleo-f767zi-rs"
 [dependencies]
 cortex-m = { version = "0.7.7", features = ["critical-section-single-core"] }
 cortex-m-rt = "0.7.5"
+cortex-m-stack = "0.2.1"
 defmt = "1.1.1"
 defmt-rtt = "1.3.0"
 embassy-executor = { version = "0.10.0", features = ["platform-cortex-m", "executor-thread", "defmt"] }

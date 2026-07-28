@@ -143,6 +143,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "cortex-m-stack"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2f94e44bc098750626e5d14e02e42e9643a3633d495420ff8228740a03fc2689"
+
+[[package]]
 name = "critical-section"
 version = "1.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -714,6 +720,7 @@ version = "0.1.0"
 dependencies = [
  "cortex-m",
  "cortex-m-rt",
+ "cortex-m-stack",
  "defmt 1.1.1",
  "defmt-rtt",
  "embassy-executor",
